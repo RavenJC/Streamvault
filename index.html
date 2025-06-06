@@ -683,6 +683,8 @@
           <option value="vidsrc.cc">Vidsrc.cc</option>
           <option value="vidsrc.me">Vidsrc.me</option>
           <option value="player.videasy.net">Player.Videasy.net</option>
+          <option value="111movies.com">111movies.com</option>
+          <option value="moviesapi.to">moviesapi.to</option>
         </select>
       </div>
       <iframe id="modal-video" class="modal-video" allowfullscreen></iframe>
@@ -907,6 +909,10 @@
       } else if (server === "vidsrc.me") {
         embedURL = `${atob('aHR0cHM6Ly92aWRzcmMubmV0L2VtYmVk')}/${type}/?tmdb=${currentItem.id}`;
       } else if (server === "player.videasy.net") {
+        embedURL = `${atob('aHR0cHM6Ly9wbGF5ZXIudmlkZWFzeS5uZXQ=')}/${type}/${currentItem.id}`;
+      } else if(server === "111movies.com") {
+        embedURL = `${atob('aHR0cHM6Ly9wbGF5ZXIudmlkZWFzeS5uZXQ=')}/${type}/${currentItem.id}`;
+      }else if(server === "moviesapi.to") {
         embedURL = `${atob('aHR0cHM6Ly9wbGF5ZXIudmlkZWFzeS5uZXQ=')}/${type}/${currentItem.id}`;
       }
 
